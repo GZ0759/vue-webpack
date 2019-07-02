@@ -16,6 +16,11 @@ export default {
 </script>
 
 <style lang="scss">
-@import "./assets/_reset.scss";
+@import "./style/_reset.scss";
+#app {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+}
 </style>
 

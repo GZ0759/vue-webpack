@@ -2,7 +2,7 @@
 <template>
   <div class="form-package">
     <div class="header">
-      <p class="headerTitle">益农信息社及信息员登记表2</p>
+      <p class="headerTitle">信息社及信息员登记表2</p>
       <div class="msg">
         (
         <span class="msg-tips">*</span>为必填项)
