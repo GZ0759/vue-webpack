@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Page from "./pages/formPackage.vue";
+import Page from "./pages/formPage.vue";
 
 export default {
   name: "app",

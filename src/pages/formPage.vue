@@ -2,11 +2,28 @@
 <template>
   <div class="form-package">
     <div class="header">
-      <p class="headerTitle">信息社及信息员登记表2</p>
+      <p class="headerTitle">信息社及信息员登记表</p>
       <div class="msg">
         (
         <span class="msg-tips">*</span>为必填项)
       </div>
+    </div>
+    <div class="aside">
+      <el-button class="aside-btn" type="primary" icon="el-icon-top" @click="scrollToTop" circle></el-button>
+      <el-button
+        class="aside-btn"
+        type="danger"
+        icon="el-icon-right"
+        @click="scrollToBottom"
+        circle
+      ></el-button>
+      <el-button
+        class="aside-btn"
+        type="primary"
+        icon="el-icon-bottom"
+        @click="scrollToBottom"
+        circle
+      ></el-button>
     </div>
     <div class="main">
       <el-form
@@ -1044,6 +1061,12 @@ export default {
     };
   },
   methods: {
+    scrollToTop() {
+      window.scrollTo(0, 0);
+    },
+    scrollToBottom() {
+      window.scrollTo(0, document.documentElement.scrollHeight);
+    },
     submitForm(formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
@@ -1145,6 +1168,17 @@ export default {
     .msg-tips {
       color: red;
     }
+  }
+}
+.aside {
+  position: fixed;
+  right: 0.4rem;
+  bottom: 2.4rem;
+  z-index: 2;
+  display: flex;
+  flex-flow: column wrap;
+  .aside-btn {
+    margin: 0.2rem auto;
   }
 }
 .main {
