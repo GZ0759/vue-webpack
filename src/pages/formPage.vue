@@ -1,6 +1,7 @@
 <!-- 主页面 -->
 <template>
   <div class="form-package">
+    <!-- 表单头部 -->
     <div class="header">
       <p class="headerTitle">信息社及信息员登记表</p>
       <div class="msg">
@@ -8,6 +9,8 @@
         <span class="msg-tips">*</span>为必填项)
       </div>
     </div>
+
+    <!-- 表单侧边按钮 -->
     <div class="aside">
       <el-button class="aside-btn" type="primary" icon="el-icon-top" @click="scrollToTop" circle></el-button>
       <el-button
@@ -25,6 +28,8 @@
         circle
       ></el-button>
     </div>
+
+    <!-- 表单主要内容 -->
     <div class="main">
       <el-form
         :model="forms"
@@ -462,6 +467,8 @@
           </el-form-item>
           <!-- </el-form> -->
         </div>
+
+        <!-- 表单提交按钮 -->
         <div class="subForm submitBtns">
           <!-- <el-form ref="form" id="form"> -->
           <el-form-item>
@@ -1067,6 +1074,8 @@ export default {
     scrollToBottom() {
       window.scrollTo(0, document.documentElement.scrollHeight);
     },
+
+    // 提交表单
     submitForm(formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
@@ -1109,46 +1118,36 @@ export default {
         }
       });
     },
+
+    // 重置表单
     resetForm(formName) {
       this.$refs[formName].resetFields();
     },
+
+    // 填充表单
     fillAll() {
-      if (Math.random() > 0.5) {
-        this.forms.IONAME = "测试一,基本为0";
-        this.forms.PNUM = 13318031415;
-        this.forms.BUSINESS_SCOPE = [1];
-        this.forms.PROVINCE = "广东省";
-        this.forms.CITY = "广州市";
-        this.forms.COUNTY = "荔湾区";
-        this.forms.TOWN = "沙面街道";
-        this.forms.VILLAGE = "翠洲社区居民委员会";
-        this.forms.IONAME = this.forms.IONAME ? this.forms.IONAME + 1 : 1;
-        this.forms.INVESTIGATOR = this.forms.INVESTIGATOR
-          ? this.forms.INVESTIGATOR + 1
-          : 1;
-        this.forms.INITIAL_ASSESS = "测试一，基本为0";
-        this.forms.INVESTIGATE_DATE = "2018-12-13";
-        for (var i in this.forms) {
-          if (!this.forms[i]) this.forms[i] = "0";
-        }
-      } else {
-        this.forms.IONAME = "测试二,基本为1";
-        this.forms.PNUM = 13318031415;
-        this.forms.BUSINESS_SCOPE = [1];
-        this.forms.PROVINCE = "广东省";
-        this.forms.CITY = "广州市";
-        this.forms.COUNTY = "荔湾区";
-        this.forms.TOWN = "沙面街道";
-        this.forms.VILLAGE = "翠洲社区居民委员会";
-        this.forms.IONAME = this.forms.IONAME ? this.forms.IONAME + 1 : 1;
-        this.forms.INVESTIGATOR = this.forms.INVESTIGATOR
-          ? this.forms.INVESTIGATOR + 1
-          : 1;
-        this.forms.INITIAL_ASSESS = "测试二，基本为1";
-        this.forms.INVESTIGATE_DATE = "2018-12-13";
-        for (var item in this.forms) {
-          if (!this.forms[item]) this.forms[item] = "1";
-        }
+      let randomResult = Math.random() > 0.5;
+
+      this.forms.IONAME = randomResult ? "测试一,基本为0" : "测试二,基本为1";
+      this.forms.PNUM = randomResult ? 13318031415 : "13318031419";
+      this.forms.BUSINESS_SCOPE = randomResult ? [1] : [2];
+      this.forms.PROVINCE = randomResult ? "广东省" : "广东省";
+      this.forms.CITY = randomResult ? "广州市" : "广州市";
+      this.forms.COUNTY = randomResult ? "荔湾区" : "荔湾区";
+      this.forms.TOWN = randomResult ? "沙面街道" : "沙面街道";
+      this.forms.VILLAGE = randomResult
+        ? "翠洲社区居民委员会"
+        : "翠洲社区居民委员会";
+      this.forms.IONAME = this.forms.IONAME ? this.forms.IONAME + 1 : 1;
+      this.forms.INVESTIGATOR = this.forms.INVESTIGATOR
+        ? this.forms.INVESTIGATOR + 1
+        : 1;
+      this.forms.INITIAL_ASSESS = randomResult
+        ? "测试一，基本为0"
+        : "测试二，基本为1";
+      this.forms.INVESTIGATE_DATE = randomResult ? "2018-12-13" : "2018-11-11";
+      for (var i in this.forms) {
+        if (!this.forms[i]) this.forms[i] = randomResult ? "0" : "1";
       }
     }
   }
