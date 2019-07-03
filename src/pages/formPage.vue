@@ -12,7 +12,7 @@
       <el-button class="aside-btn" type="primary" icon="el-icon-top" @click="scrollToTop" circle></el-button>
       <el-button
         class="aside-btn"
-        type="danger"
+        type="primary"
         icon="el-icon-right"
         @click="scrollToBottom"
         circle
@@ -462,13 +462,13 @@
           </el-form-item>
           <!-- </el-form> -->
         </div>
-        <div class="subForm submit">
+        <div class="subForm submitBtns">
           <!-- <el-form ref="form" id="form"> -->
           <el-form-item>
             <el-button type="primary" @click="submitForm('ruleForm2')">立即提交</el-button>
-            <el-button @click="resetForm('ruleForm2')">清空</el-button>
-            <el-button @click="$router.go(-1)">返回</el-button>
-            <el-button @click="fillAll">填充（上线改）</el-button>
+            <el-button type="danger" @click="resetForm('ruleForm2')">清空</el-button>
+            <el-button type="info" @click="$router.go(-1)">返回</el-button>
+            <el-button type="success" @click="fillAll">填充</el-button>
           </el-form-item>
           <!-- </el-form> -->
         </div>
@@ -1211,9 +1211,9 @@ export default {
     margin: 3rem 0 2rem;
     background-color: #ccc;
   }
-  .submit {
-    margin: 3rem 0.8rem;
-    text-align: center;
+  .submitBtns {
+    display: flex;
+    justify-content: center;
   }
 }
 </style>
