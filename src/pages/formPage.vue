@@ -167,7 +167,7 @@
               <el-option
                 v-for="(item,index) in unitTypeData"
                 :key="index"
-                :label="item.value"
+                :label="item"
                 :value="index"
               ></el-option>
             </el-select>
@@ -262,7 +262,7 @@
                 :key="index"
                 :label="index"
                 :value="index"
-              >{{ item.value }}</el-checkbox>
+              >{{ item }}</el-checkbox>
             </el-checkbox-group>
           </el-form-item>
           <el-form-item label="概况描述" prop="PROFILE_DESC">
@@ -505,32 +505,32 @@ export default {
     return {
       // 表单两个选择框的众多数据
       unitTypeData: [
-        { value: "村委会" },
-        { value: "农村党员远程教育点" },
-        { value: "农技推广机构" },
-        { value: "农村综合信息服务中心" },
-        { value: "农村商业网点" },
-        { value: "家庭农场及专业大户" },
-        { value: "农民合作社" },
-        { value: "涉农企业" },
-        { value: "农资店及兽药饲料门市" },
-        { value: "便民超市" },
-        { value: "其他" }
+        "村委会",
+        "农村党员远程教育点",
+        "农技推广机构",
+        "农村综合信息服务中心",
+        "农村商业网点",
+        "家庭农场及专业大户",
+        "农民合作社",
+        "涉农企业",
+        "农资店及兽药饲料门市",
+        "便民超市",
+        "其他"
       ],
       businessScopeTypeData: [
-        { value: "政务办理" },
-        { value: "信息服务" },
-        { value: "农资销售" },
-        { value: "农机服务" },
-        { value: "涉农培训" },
-        { value: "农业生产" },
-        { value: "农村电商（农产品销售）" },
-        { value: "农村电商（工业品销售）" },
-        { value: "乡村旅游" },
-        { value: "物流配送" },
-        { value: "日用销售" },
-        { value: "充值缴费" },
-        { value: "其他" }
+        "政务办理",
+        "信息服务",
+        "农资销售",
+        "农机服务",
+        "涉农培训",
+        "农业生产",
+        "农村电商（农产品销售）",
+        "农村电商（工业品销售）",
+        "乡村旅游",
+        "物流配送",
+        "日用销售",
+        "充值缴费",
+        "其他"
       ],
       // 地址级联渲染出来的数据数组
       cities: [],
@@ -1051,11 +1051,6 @@ export default {
         INITIAL_ASSESS: [
           { required: true, message: "请输入初步评定", trigger: "blur" }
         ],
-
-        // 其他情况说明验证
-        // OTHER_CIRCUMSTANCES: [
-        //   { required: true, message: "请输入其他情况说明", trigger: "blur" }
-        // ],
 
         // 考察人验证
         INVESTIGATOR: [
